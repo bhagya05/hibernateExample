@@ -23,7 +23,7 @@ public class QuickStartOrmApp {
         System.out.println("Connected to the YugabyteDB Cluster successfully.");
         EmployeeDAO employeeDAO = new EmployeeDAO(session);
         // Save an employee
-        employeeDAO.save(new Employee("Bhagya",10,"English"));
+        employeeDAO.save(new Employee("Bhagya",10,"English",1));
 
 
         // Find the employee

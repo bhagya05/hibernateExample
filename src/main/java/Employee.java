@@ -3,8 +3,7 @@ import javax.persistence.Table;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
-@Table(name = "employee")
+@Entity(name="employee")
 public class Employee {
 
     @Id
@@ -20,10 +19,11 @@ public class Employee {
     {
 
     }
-    public Employee(String name, Integer age, String language) {
+    public Employee(String name, Integer age, String language,Integer id) {
         this.name = name;
         this.age = age;
         this.language = language;
+        this.id = id;
     }
 
     public Integer getId() {
@@ -57,4 +57,5 @@ public class Employee {
     public void setLanguage(String language) {
         this.language = language;
     }
+
 }
