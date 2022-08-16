@@ -1,41 +1,49 @@
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
 
+
+import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
-import java.util.Scanner;
+import java.time.LocalDate;
+import java.util.*;
+
+import com.tut.Address;
+import com.tut.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 
 public class QuickStartOrmApp {
 
 
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+    public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
 
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Configuration cnf = new Configuration().configure();
+        SessionFactory sessionFactory = cnf.buildSessionFactory();
         Session session = sessionFactory.openSession();
 
-
-        System.out.println("Connected to the YugabyteDB Cluster successfully.");
-        EmployeeDAO employeeDAO = new EmployeeDAO(session);
-        // Save an employee
-        employeeDAO.save(new Employee("Bhagya",10,"English",1));
+        Transaction transaction = session.beginTransaction();
+        Student student = new Student("Bhagya","Pune");
 
 
-        // Find the employee
-        Employee employee;
-        if(employeeDAO.findById(1).isPresent())
-        {
-            employee = employeeDAO.findById(1).get();
-        }
-        else employee = null;
+        //Address
+        Address address = new Address();
+        address.setCity("Jabalpur");
+        address.setStreet("House no. 804/1");
+        address.setX(10.0);
+        address.setOpen(true);
+        address.setAddedDate(new Date());
+        //Reading image
+        InputStream inputStream = new FileInputStream("src/main/resources/pic.jpeg");
+        byte imageByte[] = inputStream.readAllBytes();
+        address.setImage(imageByte);
 
-        System.out.println("Query Returned:" + employee);
 
 
-        }
+        session.save(address);
+        session.save(student);
+        transaction.commit();
+        session.close();
+    }
 }

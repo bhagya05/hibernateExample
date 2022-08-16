@@ -1,3 +1,4 @@
+import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
 
 import javax.persistence.Entity;
@@ -7,6 +8,7 @@ import javax.persistence.Id;
 public class Employee {
 
     @Id
+    @GeneratedValue
     Integer id;
     String name;
     Integer age;
@@ -19,11 +21,10 @@ public class Employee {
     {
 
     }
-    public Employee(String name, Integer age, String language,Integer id) {
+    public Employee(String name, Integer age, String language) {
         this.name = name;
         this.age = age;
         this.language = language;
-        this.id = id;
     }
 
     public Integer getId() {
@@ -58,4 +59,13 @@ public class Employee {
         this.language = language;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nName :"+getName());
+        sb.append("\nAge :"+getAge());
+        sb.append("\nLanguage : "+getLanguage());
+        sb.append("\nID : "+getId());
+        return sb.toString();
+    }
 }

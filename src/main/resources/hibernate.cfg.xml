@@ -16,6 +16,14 @@
 <!--        <property name="hibernate.connection.isolation">8</property>-->
 <!--        <property name="hibernate.current_session_context_class">thread</property>-->
 <!--        <property name="javax.persistence.create-database-schemas">true</property>-->
-        <mapping class="Employee"></mapping>
+<!--        <mapping class="Employee"></mapping>-->
+<!--        <mapping class="com.tut.Student"></mapping>-->
+<!--        <mapping class="com.tut.Address"></mapping>-->
+<!--        <mapping class="com.mapping.Answer"></mapping>-->
+<!--        <mapping class="com.mapping.Question"></mapping>-->
+        <mapping class="com.mapping.Author"></mapping>
+        <mapping class="com.mapping.Book"></mapping>
+
+
     </session-factory>
 </hibernate-configuration>

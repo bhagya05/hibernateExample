@@ -1,3 +1,4 @@
+package com.tut;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
