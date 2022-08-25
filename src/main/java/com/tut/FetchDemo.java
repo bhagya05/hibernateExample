@@ -10,8 +10,11 @@ public class FetchDemo {
         Transaction transaction = session.beginTransaction();
         //Get Student
 
+        // Returns null if not present
         Student student = session.get(Student.class,3);
 
+
+        // Throws ObjectNotFound error if not present
         Address address = session.load(Address.class,101);
         System.out.println(address);
         System.out.println(student);

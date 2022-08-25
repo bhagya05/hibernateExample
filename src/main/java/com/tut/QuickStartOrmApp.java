@@ -1,4 +1,4 @@
-
+package com.tut;
 
 import java.io.*;
 import java.sql.Connection;
@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 import com.tut.Address;
+import com.tut.Certificate;
 import com.tut.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

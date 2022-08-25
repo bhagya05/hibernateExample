@@ -1,3 +1,5 @@
+package com.tut;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
 

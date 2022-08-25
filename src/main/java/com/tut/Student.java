@@ -1,5 +1,6 @@
 package com.tut;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,6 +13,7 @@ public class Student {
     private String name;
     private String city;
 
+    @Embedded
     private Certificate certificate;
 
     public Student() {

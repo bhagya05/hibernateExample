@@ -1,6 +1,8 @@
+package com.tut;
+
+import com.tut.Employee;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.engine.spi.SessionDelegatorBaseImpl;
 
 import java.util.Optional;
 
